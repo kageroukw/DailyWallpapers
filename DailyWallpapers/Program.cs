@@ -51,7 +51,7 @@ namespace DailyWallpapers
             {
                 Console.WriteLine("[APP] Starting auto-check timer...");
                 await GetWallpaper();
-            }, null, TimeSpan.Zero, TimeSpan.FromDays(1));
+            }, null, TimeSpan.Zero, TimeSpan.FromHours(1));
 
             Console.WriteLine("[APP] Initialized");
 
