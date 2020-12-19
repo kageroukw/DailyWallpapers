@@ -53,7 +53,7 @@ namespace DailyWallpapers
                 await GetWallpaper();
             }, null, TimeSpan.Zero, TimeSpan.FromHours(1));
 
-            Console.WriteLine("[APP] Initialized");
+            Console.WriteLine("[APP] Initialized\n");
 
             await Task.Delay(-1);
         }
@@ -77,7 +77,7 @@ namespace DailyWallpapers
                 OldDate = Int32.Parse(parsed["images"][0]["enddate"].ToString());
             }
 
-            Console.WriteLine($"[WALLPAPER] Finished fetching today's wallpaper");
+            Console.WriteLine("[WALLPAPER] Finished fetching today's wallpaper\n");
         }
 
         public void UpdateBackground(string url)
