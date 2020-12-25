@@ -61,23 +61,32 @@ namespace DailyWallpapers
         public async Task GetWallpaper()
         {
             Console.WriteLine("[WALLPAPER] Fetching today's wallpaper...");
-            string url = @"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US";
-            var result = await ResponseAsync(url);
-            var parsed = JsonConvert.DeserializeObject<JObject>(result);
-
-            NewDate = Int32.Parse(parsed["images"][0]["startdate"].ToString());
-
-            if (NewDate > OldDate)
+            try
             {
-                UpdateBackground($"https://bing.com{parsed["images"][0]["url"]}");
-                Console.WriteLine("[WALLPAPER] Updating Wallpaper");
-            }
-            else
-            {
-                OldDate = Int32.Parse(parsed["images"][0]["enddate"].ToString());
-            }
+                string url = @"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US";
+                var result = await ResponseAsync(url);
+                var parsed = JsonConvert.DeserializeObject<JObject>(result);
 
-            Console.WriteLine("[WALLPAPER] Finished fetching today's wallpaper\n");
+                NewDate = Int32.Parse(parsed["images"][0]["startdate"].ToString());
+
+                if (NewDate > OldDate)
+                {
+                    UpdateBackground($"https://bing.com{parsed["images"][0]["url"]}");
+                    Console.WriteLine("[WALLPAPER] Updating Wallpaper");
+                }
+                else
+                {
+                    OldDate = Int32.Parse(parsed["images"][0]["enddate"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[WALLPAPER] Unable to fetch today's wallpaper. Error:\n\n{ex}");
+            }
+            finally
+            {
+                Console.WriteLine("[WALLPAPER] Finished fetching today's wallpaper\n");
+            }
         }
 
         public void UpdateBackground(string url)
