@@ -10,17 +10,19 @@ All you need to do is head over to <a href="https://github.com/kageroukw/DailyWa
 
 Once it's downloaded, extract the zip to a folder. (2)
 
-That's it! Open the folder and run `DailyWallpapers.exe`. Your desktop wallpaper will now be changed to today's wallpaper.
+That's it! Open the folder and run `DailyWallpapers.exe`. Your desktop wallpaper will now be changed to today's wallpaper. (3)
 
 <div align="center">
   <table>
     <tr>
       <td><img src="./docs/Zip.png" /></td>
       <td><img src="./docs/Extracted.png" /></td>
+      <td><img src="./docs/Run.png" /></td>
     </tr>
     <tr>
       <td>(1)</td>
       <td>(2)</td>
+      <td>(3)</td>
     </tr>
   </table>
 </div>
@@ -30,6 +32,7 @@ That's it! Open the folder and run `DailyWallpapers.exe`. Your desktop wallpaper
 ### Add To Startup
 
 Press Windows Key + R, then type `shell:startup`. (1)
+
 Drag and drop `DailyWallpapers.exe` in the folder. (2)
 
 <div align="center">
